@@ -53,4 +53,29 @@ public class Film {
     public void setRunningTimeInMinutes(int runningTimeInMinutes) {
         this.runningTimeInMinutes = runningTimeInMinutes;
     }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", directors=" + directors +
+                ", runningTimeInMinutes=" + runningTimeInMinutes +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Film film = (Film) o;
+
+        return id == film.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
 }
