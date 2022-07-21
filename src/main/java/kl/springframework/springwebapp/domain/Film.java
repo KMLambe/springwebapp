@@ -1,9 +1,6 @@
 package kl.springframework.springwebapp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -13,6 +10,9 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
+    @ManyToMany
+    @JoinTable(name = "director_film", joinColumns = @JoinColumn("film_id"),
+    inverseJoinColumns = @JoinColumn(name = "director_id"))
     private Set<Director> directors;
     private int runningTimeInMinutes;
 
