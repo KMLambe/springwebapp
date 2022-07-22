@@ -8,7 +8,7 @@ public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String title;
     @ManyToMany
     @JoinTable(name = "director_film", joinColumns = @JoinColumn("film_id"),
@@ -22,11 +22,11 @@ public class Film {
         this.runningTimeInMinutes = runningTimeInMinutes;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
