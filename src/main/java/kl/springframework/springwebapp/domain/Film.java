@@ -1,6 +1,7 @@
 package kl.springframework.springwebapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,12 +14,11 @@ public class Film {
     @ManyToMany
     @JoinTable(name = "director_film", joinColumns = @JoinColumn("film_id"),
     inverseJoinColumns = @JoinColumn(name = "director_id"))
-    private Set<Director> directors;
+    private Set<Director> directors = new HashSet<>();
     private int runningTimeInMinutes;
 
-    public Film(String title, Set<Director> directors, int runningTimeInMinutes) {
+    public Film(String title, int runningTimeInMinutes) {
         this.title = title;
-        this.directors = directors;
         this.runningTimeInMinutes = runningTimeInMinutes;
     }
 

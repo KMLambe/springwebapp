@@ -1,6 +1,7 @@
 package kl.springframework.springwebapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,12 +14,11 @@ public class Director {
     private String firstName;
     private String lastName;
     @ManyToMany(mappedBy = "directors")
-    private Set<Film> films;
+    private Set<Film> films = new HashSet<>();
 
-    public Director(String firstName, String lastName, Set<Film> films) {
+    public Director(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.films = films;
     }
 
     public Long getId() {
